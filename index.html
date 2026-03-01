@@ -1,74 +1,205 @@
-<audio id="bday-song" loop>
-    <source src="song.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABDUL | The 5-Year Chapter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #00f2ff; 
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
 
-<div id="magic-overlay" class="overlay">
-    <div class="message-content">
-        <h2 class="highlight">To the Realest,</h2>
-        <p>
-            Five years ago, we were just kids in high school hallways, and honestly, 
-            a lot has changed since then. But you? You’ve been the one constant. 
-            Thanks for being the brother who stays 100 when the world gets loud. 
-            Enjoy your day, Abdul. You earned every bit of this.
-        </p>
-        <button class="bday-btn" onclick="closeMagic()">Back to Site</button>
+        body {
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Animated Background */
+        .bg-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: -1;
+            border-radius: 50%;
+            animation: drift 15s infinite alternate;
+        }
+
+        @keyframes drift {
+            from { top: 10%; left: 10%; }
+            to { top: 70%; left: 80%; }
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            padding: 40px 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            margin: 10px 0;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .badge {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 10px 25px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .counter-box {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 24px;
+            margin: 40px 0;
+        }
+
+        .number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        .bday-btn {
+            background: var(--accent);
+            color: black;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .bday-btn:hover {
+            box-shadow: 0 0 30px var(--accent);
+            transform: scale(1.05);
+        }
+
+        /* Overlay Styles */
+        #magic-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none; 
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .message-content {
+            max-width: 500px;
+            background: #111;
+            border: 1px solid var(--accent);
+            padding: 40px;
+            border-radius: 30px;
+            margin: 20px;
+        }
+
+        .message-content p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        footer {
+            margin-top: 50px;
+            opacity: 0.3;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <audio id="bday-song" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <section class="hero">
+            <div class="badge">Brotherhood Edition</div>
+            <h1>ABDUL</h1>
+            <p>5 Years. One Brotherhood. Real Recognition.</p>
+            <button class="bday-btn" onclick="celebrate()">TAP TO SEE MAGIC ✨</button>
+        </section>
+
+        <div class="counter-box">
+            <span class="number">5</span>
+            <span>YEARS OF REALNESS</span>
+        </div>
+
+        <footer>Built for Abdul's Day | 2026</footer>
     </div>
-</div>
 
-<style>
-    /* New Styles for the Magic Overlay */
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        display: none; /* Hidden by default */
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        padding: 20px;
-    }
+    <div id="magic-overlay">
+        <div class="message-content">
+            <h2 style="color:var(--accent)">To my brother, Abdul</h2>
+            <p>
+                From high school hallways to where we are now, 5 years have flown by. 
+                In a world where people change up constantly, you've stayed the same realest 
+                person I know. Thanks for the loyalty and the memories. <br><br>
+                <b>Happy Birthday, Legend! 🥂</b>
+            </p>
+            <button class="bday-btn" onclick="closeMagic()">Back to Site</button>
+        </div>
+    </div>
 
-    .message-content {
-        max-width: 600px;
-        background: var(--glass);
-        border: 1px solid var(--accent);
-        padding: 40px;
-        border-radius: 30px;
-        box-shadow: 0 0 50px rgba(0, 242, 255, 0.2);
-        animation: scaleUp 0.5s ease;
-    }
+    <script>
+        const song = document.getElementById('bday-song');
+        const overlay = document.getElementById('magic-overlay');
 
-    .message-content p {
-        font-size: 1.3rem;
-        line-height: 1.8;
-        color: #eee;
-    }
+        function celebrate() {
+            // Play song
+            song.play().catch(e => console.log("Audio play failed: ", e));
+            // Show Message
+            overlay.style.display = 'flex';
+        }
 
-    @keyframes scaleUp {
-        from { opacity: 0; transform: scale(0.8); }
-        to { opacity: 1; transform: scale(1); }
-    }
-</style>
-
-<script>
-    const song = document.getElementById('bday-song');
-    const overlay = document.getElementById('magic-overlay');
-
-    function celebrate() {
-        // 1. Play the music
-        song.play().catch(error => {
-            console.log("Autoplay prevented, but playing now on click!");
-        });
-
-        // 2. Show the heartfelt message
-        overlay.style.display = 'flex';
-    }
-
-    function closeMagic() {
-        overlay.style.display = 'none';
-    }
-</script>
+        function closeMagic() {
+            overlay.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
